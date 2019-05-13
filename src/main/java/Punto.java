@@ -13,8 +13,10 @@ public class Punto {
         this.setX2(x2);
         this.setY2(y2);
     }
-
-
+    public void puntoVuelta(){
+        this.setX2(x2);
+        this.setY2(y2);
+    }
     public double getX1() {
         return x1;
     }
