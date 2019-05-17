@@ -4,17 +4,16 @@ public class Lector {
     private int entrada;
     private int contador = 2;
 
-    public Lector(){
-        this.setEntrada(entrada);
-    }
-
+    public Lector(){}
     public int getEntrada() {
         return entrada;
     }
 
     public void setEntrada(int entrada) {
-        this.entrada = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de puntos a medir:"));
+        this.entrada = entrada;
     }
+    public int getContador() {return contador;}
+
     public void contarVueltas (){
         while (entrada > contador) {
             contador = contador + 1;

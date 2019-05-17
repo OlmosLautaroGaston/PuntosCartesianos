@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Punto {
     private double x1;
     private double y1;
@@ -8,21 +6,25 @@ public class Punto {
     private double hipotenusa;
 
     public Punto() {
-        this.setX1(x1);
-        this.setY1(y1);
-        this.setX2(x2);
-        this.setY2(y2);
+        this.setX1(getX1());
+        this.setX2(getX2());
+        this.setY1(getY1());
+        this.setY2(getY2());
     }
-    public void puntoVuelta(){
-        this.setX2(x2);
-        this.setY2(y2);
+
+
+    public double calcularHipotenusa() {
+        hipotenusa = Math.hypot(getX2() - getX1(), getY2() - getY1());
+        return hipotenusa;
     }
+
     public double getX1() {
         return x1;
     }
 
     public void setX1(double x1) {
-        this.x1 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese x del punto A:"));
+        this.x1 = x1;
+        System.out.println("el valor de x es"+x1);
     }
 
     public double getY1() {
@@ -30,7 +32,8 @@ public class Punto {
     }
 
     public void setY1(double y1) {
-        this.y1 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese y del punto A:"));
+        this.y1 = y1;
+        System.out.println("el valor de y es"+y1);
     }
 
     public double getX2() {
@@ -38,7 +41,9 @@ public class Punto {
     }
 
     public void setX2(double x2) {
-        this.x2 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese x del punto B:"));
+        this.x2 = x2;
+        System.out.println("el valor de x2 es"+x2);
+
     }
 
     public double getY2() {
@@ -46,10 +51,8 @@ public class Punto {
     }
 
     public void setY2(double y2) {
-        this.y2 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese y del punto B:"));
-    }
-    public double calcularHipotenusa() {
-        hipotenusa = Math.hypot(x2-x1, y2-y1);
-        return hipotenusa;
+        this.y2 = y2;
+        System.out.println("el valor de y2 es"+y2);
+
     }
 }
