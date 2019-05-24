@@ -13,31 +13,23 @@ public class Calcular {
         int e = scaner.nextInt();
         int x;
         int y;
-        int contador = 0;
         for (x=0;x<e;x++){
             for (y=0;y<2;y++) {
                 System.out.println("dijite los elementos ["+x+"] y de ["+y+"]");
                 arreglo[x][y]=scaner.nextInt();
             }
         }
+        int [][] arrayacum = new int[20][2];
         for (x=0; x < arreglo.length; x++) {
-
             for (y=0; y < arreglo[x].length; y++) {
-                if(x%4==0 & x!=0){
-                    punto.setY2(arreglo[x][y]);
-                }
-                if (x%3==0 & x!=0){
-                    punto.setX2(arreglo[x][y]);
-                }
-                if (contador%2==0){
-                    if (y==0){
-                        punto.setX1(arreglo[x][y]);
-                    }else{
-                        punto.setY1(arreglo[x][y]);
-                    }
+                if(y==0){
+                    arrayacum[x][y] = arreglo[x][y]-arreglo[x][y+1];
+                    punto.setX1(arrayacum[x][y]);
+                }else{
+                    arrayacum[x][y] = arreglo[x][y]-arreglo[x+1][y];
+                    punto.setY1(arrayacum[x][y]);
                 }
             }
-            contador = contador+1;
         }
         for (int[]fila:arreglo){
             System.out.println();
