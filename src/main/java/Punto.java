@@ -35,13 +35,13 @@ public class Punto {
                 if (cont[i] != cont[j]) {
                     hypo = Math.sqrt(Math.pow(arrx[i] - arrx[j], 2) + Math.pow(arry[i] - arry[j], 2));
                     calculateDistanceMIN(hypo,cont[j],cont[i]);
-                    System.out.println("la distancia entre el punto " + cont[j] + " y " + cont[i] + " es :" + hypo);
+                   // System.out.println("la distancia entre el punto " + cont[j] + " y " + cont[i] + " es :" + hypo);
                 }
             }
         }
-        System.out.println("La distancia más corta es < "+numMinimo+" > entre los puntos < "+y+" >,< "+x+" >");
+        System.out.println("La distancia más corta es < "+numMinimo+" > entre los puntos < "+y+" > y < "+x+" >");
     }
-    public void calculateDistanceMIN(double hypo, int j,int i){
+    private void calculateDistanceMIN(double hypo, int j,int i){
         if (numMinimo>hypo){
             numMinimo = hypo;
             x = j;
