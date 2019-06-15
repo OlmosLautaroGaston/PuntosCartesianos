@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Punto {
@@ -13,12 +14,21 @@ public class Punto {
 
     Scanner scaner = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
+    Random rd = new Random();
 
     public Punto(int firstEntrance) {
         this.firstEntrance = firstEntrance;
         arrx = new int[firstEntrance];
         arry = new int[firstEntrance];
         cont = new int[firstEntrance];
+    }
+
+    public void generateXYaleatory() {
+        for (int i = 0; i < firstEntrance; i++) {
+            cont[i] = i + 1;
+            arrx[i] = rd.nextInt(1000000);
+            arry[i] = rd.nextInt(1000000);
+        }
     }
 
     public void generateXY() {
@@ -32,19 +42,20 @@ public class Punto {
     }
 
     public void calculateDistanceXY() {
-        for (int i = 0; i < arrx.length-1; i++) {
-            for (int j = i+1; j < arry.length; j++) {
-                    hypo = Math.sqrt(Math.pow(arrx[i] - arrx[j], 2) + Math.pow(arry[i] - arry[j], 2));
-                    calculateDistanceMIN(hypo,cont[j],cont[i]);
-                    System.out.println("la distancia entre el punto " + cont[i] + " y " + cont[j] + " es < " + df.format(hypo)+" >");
+        for (int i = 0; i < arrx.length - 1; i++) {
+            for (int j = i + 1; j < arry.length; j++) {
+                hypo = Math.sqrt(Math.pow(arrx[i] - arrx[j], 2) + Math.pow(arry[i] - arry[j], 2));
+                calculateDistanceMIN(hypo, cont[j], cont[i]);
+                //System.out.println("la distancia entre el punto " + cont[i] + " y " + cont[j] + " es < " + df.format(hypo) + " >");
 
             }
         }
         System.out.println("");
-        System.out.println("La distancia más corta es < "+df.format(numMinimo)+" > entre los puntos < "+end+" > y < "+ init +" >");
+        System.out.println("La distancia más corta es < " + df.format(numMinimo) + " > entre los puntos < " + end + " > y < " + init + " >");
     }
-    private void calculateDistanceMIN(double hypo, int j,int i){
-        if (numMinimo>hypo){
+
+    private void calculateDistanceMIN(double hypo, int j, int i) {
+        if (numMinimo > hypo) {
             numMinimo = hypo;
             init = j;
             end = i;
