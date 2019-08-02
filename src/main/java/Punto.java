@@ -8,23 +8,31 @@ public class Punto {
     private int[] arrx;
     private int[] arry;
     private int[] cont;
-    private int firstEntrance;
     private double hypo;
     private double numMinimo = 1000000;
+    private int cantPoint;
 
     Scanner scaner = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#.00");
     Random rd = new Random();
 
-    public Punto(int firstEntrance) {
-        this.firstEntrance = firstEntrance;
-        arrx = new int[firstEntrance];
-        arry = new int[firstEntrance];
-        cont = new int[firstEntrance];
+    public Punto() {
+
+    }
+    public void setSizeArr(){
+        cantPoint = firstEntrance();
+        arrx = new int[cantPoint];
+        arry = new int[cantPoint];
+        cont = new int[cantPoint];
+    }
+    private int firstEntrance(){
+        System.out.println("Cuantos puntos desea crear? ");
+        int firstEntrance = scaner.nextInt();
+        return firstEntrance;
     }
 
     public void generateXYaleatory() {
-        for (int i = 0; i < firstEntrance; i++) {
+        for (int i = 0; i < cantPoint; i++) {
             cont[i] = i + 1;
             arrx[i] = rd.nextInt(1000000);
             arry[i] = rd.nextInt(1000000);
@@ -32,7 +40,7 @@ public class Punto {
     }
 
     public void generateXY() {
-        for (int i = 0; i < firstEntrance; i++) {
+        for (int i = 0; i < cantPoint; i++) {
             cont[i] = i + 1;
             System.out.println("Ingrese el valor de X del Punto < " + cont[i] + " >  ");
             arrx[i] = scaner.nextInt();
