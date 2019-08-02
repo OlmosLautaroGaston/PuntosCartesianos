@@ -4,33 +4,32 @@ import java.util.Scanner;
 
 public class Calcular {
     public static void main(String[] args) {
-        Scanner scaner = new Scanner(System.in);
-        Punto point = new Punto();
+        /** Instanciamos las clases necesarioas **/
+        Scanner Scanner = new Scanner(System.in);
+        View View = new View();
+        Punto Point = new Punto();
         int exResp;
-        System.out.println("Ingrese puntos en el eje cartesiano.");
-        System.out.println("basado en los puntos dictados obtendremos los dos más cercanos(Distancia Mínima).");
-        System.out.println("1 - Para generar numeros aleatorios hasta 100.000 y calcular ");
-        System.out.println("2 - Para ingresar los puntos manualmente X e Y");
-        System.out.println("");
-
+        /**Generamos el menu**/
+        View.menu();
         do {
-            exResp = scaner.nextInt();
+            exResp = Scanner.nextInt();
             switch (exResp){
                 case 1:
-                    point.setSizeArr();
-                    point.generateXYaleatory();
+                    View.firsEntranceView();
+                    Point.setSizeArr();
+                    Point.generateXYaleatory();
                     break;
                 case 2:
-                    point.setSizeArr();
-                    point.generateXY();
+                    View.firsEntranceView();
+                    Point.setSizeArr();
+                    Point.generateXY();
                     break;
                 default:
-                    System.out.println("¡ERROR!");
-                    System.out.println("El numero ingresado es incorrecto");
+                    View.responseError();
                     break;
             }
         }while(exResp != 2 && exResp !=1);
-        point.calculateDistanceXY();
+        Point.calculateDistanceXY();
     }
 
 }

@@ -12,40 +12,41 @@ public class Punto {
     private double numMinimo = 1000000;
     private int cantPoint;
 
-    Scanner scaner = new Scanner(System.in);
-    DecimalFormat df = new DecimalFormat("#.00");
-    Random rd = new Random();
+    Scanner Scanner = new Scanner(System.in);
+    Random Random = new Random();
+    View View = new View();
 
     public Punto() {
 
     }
-    public void setSizeArr(){
+
+    public void setSizeArr() {
         cantPoint = firstEntrance();
         arrx = new int[cantPoint];
         arry = new int[cantPoint];
         cont = new int[cantPoint];
     }
-    private int firstEntrance(){
-        System.out.println("Cuantos puntos desea crear? ");
-        int firstEntrance = scaner.nextInt();
+
+    private int firstEntrance() {
+        int firstEntrance = Scanner.nextInt();
         return firstEntrance;
     }
 
     public void generateXYaleatory() {
         for (int i = 0; i < cantPoint; i++) {
             cont[i] = i + 1;
-            arrx[i] = rd.nextInt(1000000);
-            arry[i] = rd.nextInt(1000000);
+            arrx[i] = Random.nextInt(1000000);
+            arry[i] = Random.nextInt(1000000);
         }
     }
 
     public void generateXY() {
         for (int i = 0; i < cantPoint; i++) {
             cont[i] = i + 1;
-            System.out.println("Ingrese el valor de X del Punto < " + cont[i] + " >  ");
-            arrx[i] = scaner.nextInt();
-            System.out.println("Ingrese el valor de Y del Punto < " + cont[i] + " >  ");
-            arry[i] = scaner.nextInt();
+            View.requestXValue(cont[i]);
+            arrx[i] = Scanner.nextInt();
+            View.requestYValue(cont[i]);
+            arry[i] = Scanner.nextInt();
         }
     }
 
@@ -54,12 +55,9 @@ public class Punto {
             for (int j = i + 1; j < arry.length; j++) {
                 hypo = Math.sqrt(Math.pow(arrx[i] - arrx[j], 2) + Math.pow(arry[i] - arry[j], 2));
                 calculateDistanceMIN(hypo, cont[j], cont[i]);
-                //System.out.println("la distancia entre el punto " + cont[i] + " y " + cont[j] + " es < " + df.format(hypo) + " >");
-
             }
         }
-        System.out.println("");
-        System.out.println("La distancia más corta es < " + df.format(numMinimo) + " > entre los puntos < " + end + " > y < " + init + " >");
+        View.calculateDistanceView(numMinimo, end, init);
     }
 
     private void calculateDistanceMIN(double hypo, int j, int i) {
