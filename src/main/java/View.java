@@ -9,7 +9,7 @@ public class View {
     public void menu(){
         System.out.println("Ingrese puntos en el eje cartesiano.");
         System.out.println("basado en los puntos dictados obtendremos los dos más cercanos(Distancia Mínima).");
-        System.out.println("1 - Para generar numeros aleatorios hasta 100.000 y calcular ");
+        System.out.println("1 - Para generar numeros aleatorios hasta 1.000.000 y calcular ");
         System.out.println("2 - Para ingresar los puntos manualmente X e Y");
     }
     public void responseError(){
@@ -29,4 +29,5 @@ public class View {
     public void requestYValue(int contY){
         System.out.println("Ingrese el valor de X del Punto < " + contY + " >  ");
     }
+    public void resultTimeEx(float time){System.out.println("Tiempo de ejecución en segundos: " + time); }
 }

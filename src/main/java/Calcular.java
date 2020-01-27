@@ -8,6 +8,7 @@ public class Calcular {
         Scanner Scanner = new Scanner(System.in);
         View View = new View();
         Punto Point = new Punto();
+        TimeCounter Time = new TimeCounter();
         int exResp;
         /**Generamos el menu**/
         View.menu();
@@ -15,9 +16,12 @@ public class Calcular {
             exResp = Scanner.nextInt();
             switch (exResp){
                 case 1:
+
                     View.firsEntranceView();
+                    Time.settInit();
                     Point.setSizeArr();
                     Point.generateXYaleatory();
+
                     break;
                 case 2:
                     View.firsEntranceView();
@@ -30,6 +34,8 @@ public class Calcular {
             }
         }while(exResp != 2 && exResp !=1);
         Point.calculateDistanceXY();
+        Time.settEnd();
+
     }
 
 }

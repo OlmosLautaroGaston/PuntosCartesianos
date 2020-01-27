@@ -9,7 +9,7 @@ public class Punto {
     private int[] arry;
     private int[] cont;
     private double hypo;
-    private double numMinimo = 1000000;
+    private double numMinimo = 10000000;
     private int cantPoint;
 
     Scanner Scanner = new Scanner(System.in);
